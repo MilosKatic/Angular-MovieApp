@@ -1,0 +1,17 @@
+{
+  "name": "NodeBackend",
+  "version": "1.0.0",
+  "description": "A simple backend for an angular app.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/server.js"
+  },
+  "author": "Nikola Luburić",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.3",
+    "body-parser": "^1.14.1",
+    "cors": "^2.7.1"
+  }
+}

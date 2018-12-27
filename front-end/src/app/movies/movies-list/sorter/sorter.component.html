@@ -1,0 +1,13 @@
+<div>
+  <form>
+    <label for="sort">Sort by:</label>
+    <select id="sort" name="sort" [(ngModel)]="sort" (change)="changeSort()">
+      <option value="rating">Rating</option>
+      <option value="year">Year</option>
+    </select>
+    <button (click)="changeDirection()">
+      <span *ngIf="sortDirection == 'asc'">&uarr;</span>
+      <span *ngIf="sortDirection == 'desc'">&darr;</span>
+    </button>
+  </form>
+</div>

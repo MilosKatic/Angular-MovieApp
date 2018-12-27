@@ -1,0 +1,3 @@
+<p>
+  <button class="btn btn-link" *ngIf="currentPage != 1" (click)="changePage(currentPage - 1)">&laquo; Prev</button><button class="btn btn-link" *ngIf="currentPage != pageCount" (click)="changePage(currentPage + 1)">Next &raquo;</button>
+</p>

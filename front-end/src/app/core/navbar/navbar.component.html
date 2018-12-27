@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['home']" routerLinkActive="active">Movie Mania</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['home']" routerLinkActive="active">Home</a>
+    </li>
+  </ul>
+
+  <ul class="navbar-nav ml-auto">  
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['movies']" routerLinkActive="active">Movies</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['movies', 'add']" routerLinkActive="active">Add new movie</a>
+    </li>
+  </ul>
+</nav>

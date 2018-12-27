@@ -1,0 +1,60 @@
+<br>
+<form [formGroup]="form" (ngSubmit)="saveMovie()">
+  <div class="form-group row" [ngClass]="{'error-display':form.controls.name.invalid && form.controls.name.touched}">
+    <label for="name" class="col-sm-2">Name:</label>
+    <input id="name" class="form-control col-sm-6" type="text" formControlName="name">
+    <div class="col-sm-4" *ngIf="form.controls.name.touched">
+      <div *ngIf="form.controls.name.errors?.required">This field is required.</div>
+    </div>
+  </div>
+  <div class="form-group row" [ngClass]="{'error-display':form.controls.description.invalid && form.controls.description.touched}">
+    <label for="description" class="col-sm-2">Description:</label>
+    <textarea id="description" class="form-control col-sm-6" type="text" formControlName="description"></textarea>
+    <div class="col-sm-4" *ngIf="form.controls.description.touched">
+      <div *ngIf="form.controls.description.errors?.required">This field is required.</div>
+      <div *ngIf="form.controls.description.errors?.minlength">This field requires at least 30 characters.</div>
+      <div *ngIf="form.controls.description.errors?.maxlength">This field can't have more than 250 characters.</div>
+    </div>
+  </div>
+  <div class="form-group row" [ngClass]="{'error-display':form.controls.year.invalid && form.controls.year.touched}">
+    <label for="year" class="col-sm-2">Year:</label>
+    <input id="year" class="form-control col-sm-6" type="number" formControlName="year">
+    <div class="col-sm-4" *ngIf="form.controls.year.touched">
+      <div *ngIf="form.controls.year.errors?.required">This field is required.</div>
+      <div *ngIf="form.controls.year.errors?.min || form.controls.year.errors?.max">This is not a valid year.</div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="rating" class="col-sm-2">Rating:</label>
+    <input id="rating" class="form-control col-sm-6" type="number" formControlName="rating">
+  </div>
+  <div class="form-group row">
+    <label for="duration" class="col-sm-2">Duration:</label>
+    <input id="duration" class="form-control col-sm-6" type="number" formControlName="duration">
+  </div>
+  <div class="form-group row">
+    <label for="director" class="col-sm-2">Director:</label>
+    <input id="director" class="form-control col-sm-6" type="text" formControlName="director">
+  </div>
+  <div class="form-group row">
+    <label for="genre" class="col-sm-2">Genre:</label>
+    <select id="genre" class="form-control col-sm-4" formControlName="genre">
+      <option *ngFor="let genre of genres" [ngValue]="genre.name">{{genre.name}}</option>
+    </select>
+    <div class="col-sm-2 text-right">
+      <a class="btn btn-primary" (click)="toggleGenreMenu()">+</a>
+    </div>
+  </div>
+  <div class="form-group row col-sm-12">
+    <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Save</button>
+  </div>
+</form>
+<form *ngIf="genreMenu">
+  <div class="form-group row">
+      <label for="newGenre" class="col-sm-2">Enter new genre:</label>
+      <input id="newGenre" name="newGenre" class="form-control col-sm-4" type="text" [(ngModel)]="newGenre.name">
+      <div class="col-sm-2 text-right">
+        <button class="btn btn-primary" (click)="saveGenre()">Add new genre</button>
+      </div>
+  </div>
+</form>

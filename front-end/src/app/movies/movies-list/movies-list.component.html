@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-sm-6 text-center">
+    <mm-pagination [totalItems]="movies?.count" [pageSize]="params.pageSize" (pageChange)="updateParams($event)"></mm-pagination>
+  </div>
+  <div class="col-sm-6 text-center">
+    <mm-sorter (sortChange)="updateParams($event)"></mm-sorter>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div *ngFor="let movie of movies?.results">
+      <mm-movie [movie]="movie"></mm-movie>
+    </div>
+  </div>
+</div>
